@@ -1,58 +1,138 @@
-import java.util.Scanner
+const val camel = """Switching on the camera in the camel habitat...
+ ___.-''''-.
+/___  @    |
+',,,,.     |         _.'''''''._
+     '     |        /           \
+     |     \    _.-'             \
+     |      '.-'                  '-.
+     |                               ',
+     |                                '',
+      ',,-,                           ':;
+           ',,| ;,,                 ,' ;;
+              ! ; !'',,,',',,,,'!  ;   ;:
+             : ;  ! !       ! ! ;  ;   :;
+             ; ;   ! !      ! !  ; ;   ;,
+            ; ;    ! !     ! !   ; ;
+            ; ;    ! !    ! !     ; ;
+           ;,,      !,!   !,!     ;,;
+           /_I      L_I   L_I     /_I
+Look at that! Our little camel is sunbathing!"""
 
-val scanner = Scanner(System.`in`) // Do not change this line
+const val lion = """Switching on the camera in the lion habitat...
+                                               ,w.
+                                             ,YWMMw  ,M  ,
+                        _.---.._   __..---._.'MMMMMw,wMWmW,
+                   _.-""        '''           YP"WMMMMMMMMMb,
+                .-' __.'                   .'     MMMMW^WMMMM;
+    _,        .'.-'"; `,       /`     .--""      :MMM[==MWMW^;
+ ,mM^"     ,-'.'   /   ;      ;      /   ,       MMMMb_wMW"  @\
+,MM:.    .'.-'   .'     ;     `\    ;     `,     MMMMMMMW `"=./`-,
+WMMm__,-'.'     /      _.\      F'''-+,,   ;_,_.dMMMMMMMM[,_ / `=_}
+"^MP__.-'    ,-' _.--""   `-,   ;       \  ; ;MMMMMMMMMMW^``; __|
+           /   .'            ; ;         )  )`{  \ `"^W^`,   \  :
+          /  .'             /  (       .'  /     Ww._     `.  `"
+         /  Y,              `,  `-,=,_{   ;      MMMP`""-,  `-._.-,
+        (--, )                `,_ / `) \/"")      ^"      `-, -;"\:
+The lion is roaring!"""
+
+const val deer = """Switching on the camera in the deer habitat...
+   /|       |\
+`__\\       //__'
+   ||      ||
+ \__`\     |'__/
+   `_\\   //_'
+   _.,:---;,._
+   \_:     :_/
+     |@. .@|
+     |     |
+     ,\.-./ \
+     ;;`-'   `---__________-----.-.
+     ;;;                         \_\
+     ';;;                         |
+      ;    |                      ;
+       \   \     \        |      /
+        \_, \    /        \     |\
+          |';|  |,,,,,,,,/ \    \ \_
+          |  |  |           \   /   |
+          \  \  |           |  / \  |
+           | || |           | |   | |
+           | || |           | |   | |
+           | || |           | |   | |
+           |_||_|           |_|   |_|
+          /_//_/           /_/   /_/
+Our 'Bambi' looks hungry. Let's go to feed it!"""
+
+const val goose = """Switching on the camera in the goose habitat...
+
+                                    _
+                                ,-"" "".
+                              ,'  ____  `.
+                            ,'  ,'    `.  `._
+   (`.         _..--.._   ,'  ,'        \    \
+  (`-.\    .-""        ""'   /          (  d _b
+ (`._  `-"" ,._             (            `-(   \
+ <_  `     (  <`<            \              `-._\
+  <`-       (__< <           :
+   (__        (_<_<          ;
+    `------------------------------------------
+The goose is staring intently at you... Maybe it's time to change the channel?"""
+
+const val bat = """Switching on the camera in the bat habitat...
+_________________               _________________
+ ~-.              \  |\___/|  /              .-~
+     ~-.           \ / o o \ /           .-~
+        >           \\  W  //           <
+       /             /~---~\             \
+      /_            |       |            _\
+         ~-.        |       |        .-~
+            ;        \     /        i
+           /___      /\   /\      ___\
+                ~-. /  \_/  \ .-~
+                   V         V
+This bat looks like it's doing fine."""
+
+const val rabbit = """Switching on the camera in the rabbit habitat...
+         ,
+        /|      __
+       / |   ,-~ /
+      Y :|  //  /
+      | jj /( .^
+      >-"~"-v"
+     /       Y
+    jo  o    |
+   ( ~T~     j
+    >._-' _./
+   /   "~"  |
+  Y     _,  |
+ /| ;-"~ _  l
+/ l/ ,-"~    \
+\//\/      .- \
+ Y        /    Y
+ l       I     !
+ ]\      _\    /"\
+(" ~----( ~   Y.  )
+It looks like we will soon have more rabbits!"""
+
+val animals = arrayOf(camel, lion, deer, goose, bat, rabbit)
 
 fun main() {
-    greet("Aid", "2020") // change it as you need
-    remindName()
-    guessAge()
-    count()
-    test()
-    end()
-}
-
-fun greet(assistantName: String, birthYear: String) {
-    println("Hello! My name is ${assistantName}.")
-    println("I was created in ${birthYear}.")
-    println("Please, remind me your name.")
-}
-
-fun remindName() {
-    val name = scanner.nextLine()
-    println("What a great name you have, ${name}!")
-}
-
-fun guessAge() {
-    println("Let me guess your age.")
-    println("Enter remainders of dividing your age by 3, 5 and 7.")
-    val rem3 = scanner.nextInt()
-    val rem5 = scanner.nextInt()
-    val rem7 = scanner.nextInt()
-    val age = (rem3 * 70 + rem5 * 21 + rem7 * 15) % 105
-    println("Your age is ${age}; that's a good time to start programming!")
-}
-
-fun count() {
-    println("Now I will prove to you that I can count to any number you want.")
-    val num = scanner.nextInt()
-    for (i in 0..num) {
-        print(i)
-        println("!")
+    var index = 0
+    while (index != 6) {
+        println("Please enter the number of the habitat you would like to view")
+        val choose = readLine()
+        if (choose == "exit") {
+            break
+        } else {
+            when (choose) {
+                "0" -> println(camel)
+                "1" -> println(lion)
+                "2" -> println(deer)
+                "3" -> println(goose)
+                "4" -> println(bat)
+                "5" -> println(rabbit)
+            }
+        }
+        ++index
     }
-}
-
-fun test() {
-    println("Let's test your programming knowledge.")
-    println("Why do we use methods?")
-    println("1. To repeat a statement multiple times.")
-    println("2. To decompose a program into several small subroutines.")
-    println("3. To determine the execution time of a program.")
-    println("4. To interrupt the execution of a program.")
-    do {
-        val answer = readLine()?.toInt()
-    } while (answer == 2)
-}
-
-fun end() {
-    println("Congratulations, have a nice day!") // Do not change this text
+    println("See you later!")
 }
